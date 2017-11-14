@@ -1,0 +1,43 @@
+---
+- name: wrapper playbook for testing
+  hosts: all
+  
+  tasks:
+  - include_role:
+      name: role_under_test
+  vars:
+    openssl_certs_path: /etc/pki/tls/certs
+    openssl_keys_path: /etc/pki/tls/private
+    openssl_self_signed:
+      - { name: 'role_test_cert',
+          country: 'US',
+          state: 'State',
+          city: 'City',
+          organization: 'Org Name',
+          unit: 'Department Name',
+          email: 'admin@fqdn',
+          days: '3650'
+      }
+    openssl_keys: 
+      - name: mycert.key
+        key: |
+          -----BEGIN PRIVATE KEY-----
+          MULTI_LINE_CERT_KEY_GOES_HERE
+          -----END PRIVATE KEY-----
+      - name: myotherkey.key
+        key: "myotherkeycontents"
+        mode: "0664"
+        owner: "root"
+        group: "root"
+    openssl_certs:
+      - name: mycert.cer
+        cert: |
+          -----BEGIN CERTIFICATE-----
+          FAKE_CERT_CONTENT_GOES_HERE
+          SUPPORTS_MULTI_LINE
+          -----END CERTIFICATE-----
+      - name: myothercert.cer
+        cert: "myothercertcontents"
+        mode: "0664"
+        owner: "root"
+        group: "root"
