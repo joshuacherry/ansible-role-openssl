@@ -13,3 +13,14 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 | Removed       | for now removed features.              |
 | Fixed         | for any bug fixes.                     |
 | Security      | in case of vulnerabilities.            |
+
+## [Unreleased]
+
+## [1.0.1] - 2017-11-14
+
+### Added
+
+- Ansible Galaxy metadata file.
+
+[Unreleased]: https://github.com/joshuacherry/ansible-role-grafana/compare/1.0.1...HEAD
+[1.0.1]: https://github.com/joshuacherry/ansible-role-grafana/compare/1.0.0...1.0.1
