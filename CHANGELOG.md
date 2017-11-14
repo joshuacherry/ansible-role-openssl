@@ -22,5 +22,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Ansible Galaxy metadata file.
 
-[Unreleased]: https://github.com/joshuacherry/ansible-role-grafana/compare/1.0.1...HEAD
-[1.0.1]: https://github.com/joshuacherry/ansible-role-grafana/compare/1.0.0...1.0.1
+[Unreleased]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.0.1...HEAD
+[1.0.1]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.0.0...1.0.1
