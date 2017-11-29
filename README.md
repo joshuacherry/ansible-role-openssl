@@ -93,7 +93,7 @@ See `make help` for more information including a full list of available targets.
           email: 'admin@fqdn',
           days: '3650'
       }
-    openssl_keys: 
+    openssl_keys:
       - name: mycert.key
         key: |
           -----BEGIN PRIVATE KEY-----

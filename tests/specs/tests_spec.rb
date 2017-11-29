@@ -26,14 +26,14 @@ control '02' do
   title 'Verify Self Signed Certificate'
   desc 'Ensures openssl can generate self signed certificates'
 
-  describe file('/etc/pki/tls/certs/role_test_cert.cer') do
+  describe file('/etc/pki/tls/certs/role_test_cert.crt') do
     it { should exist }
   end
   describe file('/etc/pki/tls/private/role_test_cert.key') do
     it { should exist }
   end
 
-  describe x509_certificate('/etc/pki/tls/certs/role_test_cert.cer') do
+  describe x509_certificate('/etc/pki/tls/certs/role_test_cert.crt') do
     its('validity_in_days') { should be >= 3649 }
     its('subject.CN') { should eq "role_test_cert" }
     its('key_length') { should be 2048 }

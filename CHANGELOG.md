@@ -16,11 +16,18 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.2.0] - 2017-11-29
+
+### Changed
+
+- Self-Signed certificate extension from .cer to .crt
+
 ## [1.0.1] - 2017-11-14
 
 ### Added
 
 - Ansible Galaxy metadata file.
 
-[Unreleased]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.0.1...HEAD
+[Unreleased]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.2.0...HEAD
+[1.2.0]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.0.1...1.2.0
 [1.0.1]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.0.0...1.0.1
