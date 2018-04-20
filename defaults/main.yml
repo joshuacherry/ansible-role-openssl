@@ -1,5 +1,5 @@
 ---
-#    openssl_keys: 
+#    openssl_keys:
 #      - name: mykey.key
 #       key: |
 #          -----BEGIN PRIVATE KEY-----

@@ -8,7 +8,7 @@
     group: "{{ item.group | default(openssl_default_key_group) }}"
     mode: "{{ item.mode | default('0640') }}"
   with_items: "{{ openssl_keys }}"
-  no_log: True
+  no_log: true
 
 - name: Copying certs
   copy:
@@ -18,7 +18,7 @@
     group: "{{ item.group | default(openssl_default_cert_group) }}"
     mode: "{{ item.mode | default('0644') }}"
   with_items: "{{ openssl_certs }}"
-  no_log: True
+  no_log: true
 
 - name: Creating self-signed server SSL cert
   command: >

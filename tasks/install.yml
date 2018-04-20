@@ -26,14 +26,12 @@
 
 - name: Creating certs dir
   include_tasks: create_dir.yml
-  static: no
   vars:
     item: "{{ openssl_certs_path }}"
     mode: "0755"
 
 - name: Creating keys dir
   include_tasks: create_dir.yml
-  static: no
   vars:
     item: "{{ openssl_keys_path }}"
     mode: "0700"

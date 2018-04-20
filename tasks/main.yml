@@ -1,6 +1,5 @@
 ---
 - include_tasks: install.yml
-  static: no
   tags:
     - system
     - openssl
@@ -8,7 +7,6 @@
     - openssl-install
 
 - include_tasks: config.yml
-  static: no
   tags:
     - system
     - openssl
@@ -16,10 +14,8 @@
     - openssl-config
 
 - include_tasks: manage.yml
-  static: no
   tags:
     - system
     - openssl
     - manage
     - openssl-manage
-

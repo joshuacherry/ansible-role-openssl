@@ -1,10 +1,8 @@
 ---
-- name: wrapper playbook for testing
+- name: Converge
   hosts: all
-  
-  tasks:
-  - include_role:
-      name: role_under_test
+  roles:
+    - role: ansible-role-openssl
   vars:
     openssl_certs_path: /etc/pki/tls/certs
     openssl_keys_path: /etc/pki/tls/private
@@ -18,7 +16,7 @@
           email: 'admin@fqdn',
           days: '3650'
       }
-    openssl_keys: 
+    openssl_keys:
       - name: mycert.key
         key: |
           -----BEGIN PRIVATE KEY-----
