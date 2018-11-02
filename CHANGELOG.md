@@ -16,8 +16,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.3.0] - 2018-10-8
+
+### Added
+
+- Added testing of requirements.yml for other roles
+
+### Changed
+
+- Changed deprecated apt and yum install settings
+- Travis now uses a matrix of tests for each tox scenario
+- Moved .yamllint into molecule scenario
+- Updated README
+- Changed Vagrantfile to use most recent ansible and docker-compose
+- Molecule default scenario will build platforms based on environmental variables set in tox ( MOLECULE_DISTRO & MOLECULE_DOCKER_COMMAND )
+- Updated Tox to test multiple operating systems and ansible versions
+
 ### Removed
 
+- Removed building docker container within repository
+- Removed static molecule create/destroy/prepare files
 - Removed old makefile
 
 ## [1.2.1] - 2018-04-20
@@ -42,7 +60,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Ansible Galaxy metadata file.
 
-[Unreleased]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.2.1...HEAD
+[Unreleased]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.3.0...HEAD
+[1.3.0]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.2.1...1.3.0
 [1.2.1]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.0.1...1.2.0
 [1.0.1]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.0.0...1.0.1
