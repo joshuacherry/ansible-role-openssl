@@ -35,6 +35,8 @@ def test_self_signed_signature(host):
     """
     Tests openssl can generate self signed certificates
     """
+    dist_release = host.ansible(
+        "setup")["ansible_facts"]["ansible_distribution_release"]
     cert = host.file('/etc/pki/tls/certs/role_test_cert.crt')
     key = host.file('/etc/pki/tls/private/role_test_cert.key')
     subject_cmd = ("openssl x509 -in "
@@ -44,6 +46,12 @@ def test_self_signed_signature(host):
                       "/OU=Department Name/CN=role_test_cert"
                       "/emailAddress=admin@fqdn"
                       )
+
+    if dist_release == "bionic":
+        subject_output = ("subject=C = US, ST = State, L = City, "
+                          "O = Org Name, OU = Department Name, "
+                          "CN = role_test_cert, emailAddress = admin@fqdn"
+                          )
 
     subject = host.run(subject_cmd)
 

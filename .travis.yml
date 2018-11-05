@@ -29,5 +29,6 @@ install:
   - pip install tox-travis
   - pip install docker-py
   - pip install molecule
+  - pip install pytest
 script:
   - tox
