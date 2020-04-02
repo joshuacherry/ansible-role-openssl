@@ -1,26 +1,27 @@
 ---
 language: python
 sudo: required
+dist: xenial
 services:
   - docker
 
 python:
-  - 2.7
+  - 3.8
 
 matrix:
   fast_finish: true
   include:
-    - { env: ANSIBLE=2.5 OS=ubuntu1604}
-    - { env: ANSIBLE=2.6 OS=ubuntu1604}
-    - { env: ANSIBLE=2.7 OS=ubuntu1604}
+    - { env: ANSIBLE=2.8 OS=ubuntu1604}
+    - { env: ANSIBLE=2.9 OS=ubuntu1604}
 
-    - { env: ANSIBLE=2.5 OS=ubuntu1804}
-    - { env: ANSIBLE=2.6 OS=ubuntu1804}
-    - { env: ANSIBLE=2.7 OS=ubuntu1804}
+    - { env: ANSIBLE=2.8 OS=ubuntu1804}
+    - { env: ANSIBLE=2.9 OS=ubuntu1804}
 
-    - { env: ANSIBLE=2.5 OS=centos7}
-    - { env: ANSIBLE=2.6 OS=centos7}
-    - { env: ANSIBLE=2.7 OS=centos7}
+    - { env: ANSIBLE=2.8 OS=centos7}
+    - { env: ANSIBLE=2.9 OS=centos7}
+
+    - { env: ANSIBLE=2.8 OS=centos8}
+    - { env: ANSIBLE=2.9 OS=centos8}
 
 
 before_install:
@@ -29,6 +30,7 @@ install:
   - pip install tox-travis
   - pip install docker-py
   - pip install molecule
-  - pip install pytest
+  - pip install ansible-lint
+  - pip install flake8
 script:
   - tox

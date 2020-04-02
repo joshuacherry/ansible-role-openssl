@@ -7,12 +7,22 @@
 VAGRANTFILE_API_VERSION = "2"
 ROOT_FOLDER = File.basename(__dir__)
 
+
 $setupScript = <<SCRIPT
-echo provisioning docker...
+echo -e "\n#########################################\n## Building Python 3.8 ##\n#########################################\n"
 sudo apt-get update
+sudo apt-get install -y build-essential
+sudo apt-get install -y libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev 
+wget https://www.python.org/ftp/python/3.8.1/Python-3.8.1.tgz
+tar -xzvf Python-3.8.1.tgz
+sudo Python-3.8.1/configure # --enable-optimizations
+sudo make
+sudo make install
+
+echo -e "\n#########################################\n## Provisioning Docker ##\n#########################################\n"
 sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common bash-completion
-sudo apt-get install python3-pip -y && sudo pip3 install --upgrade pip && sudo pip3 install pyyaml
-sudo apt-get install python-pip -y && sudo pip2 install --upgrade pip && sudo pip2 install pyyaml
+sudo pip3 install --upgrade pip setuptools
+
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository \
    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
@@ -20,19 +30,28 @@ sudo add-apt-repository \
    stable"
 sudo apt-get update
 # Show available version apt-cache madison docker-ce
-sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-ce python-dev
+sudo apt-get -o Dpkg::Options::="--force-confnew" install -y docker-ce
+
+echo -e "\n#########################################\n## Install Packages with pip ##\n#########################################\n"
+sudo pip install --upgrade \
+  ansible=="2.9.*" \
+  docker=="4.2.*"  \
+  six=="1.14.*"    \
+  molecule         \
+  ansible-lint     \
+  flake8           \
+  testinfra        \
+  tox
+
 sudo usermod -a -G docker vagrant
-sudo pip2 install testinfra
-sudo pip2 install ansible
-sudo pip2 install docker-compose
-sudo pip2 install molecule
-sudo pip2 install tox
 
 docker version
 
-docker-compose version
-
 molecule --version
+
+ansible --version
+
+pip -V
 echo "###########################################"
 echo "#                IP ADDRESS               #"
 echo "#                                         #"
@@ -41,13 +60,13 @@ echo "###########################################"
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "bento/ubuntu-16.04"
+  config.vm.box = "bento/ubuntu-18.04"
   config.vm.synced_folder ".", "/"+ROOT_FOLDER,
   owner: "vagrant", group: "vagrant",
   mount_options: ["dmode=777,fmode=777"]
   config.vm.define "server" do |host|
     host.vm.hostname = "server"
-    config.vm.network "private_network", type: "dhcp"
+    #config.vm.network "forwarded_port", guest: 80, host: 8080
     host.vm.provider "virtualbox" do |vb|
       vb.memory = "2048"
       vb.cpus = "2"

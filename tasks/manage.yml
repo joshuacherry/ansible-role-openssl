@@ -20,6 +20,7 @@
   with_items: "{{ openssl_certs }}"
   no_log: true
 
+# yamllint disable rule:line-length
 - name: Creating self-signed server SSL cert
   command: >
     openssl req -new
@@ -33,3 +34,4 @@
   args:
     creates: "{{ openssl_certs_path }}/{{ item.name }}.crt"
   with_items: "{{ openssl_self_signed }}"
+# yamllint enable rule:line-length

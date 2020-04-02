@@ -1,11 +1,12 @@
 ---
+ignore: |
+  .tox/
+
 extends: default
 rules:
   line-length:
     max: 140
     level: warning
-    ignore: |
-      manage.yml
   braces:
     max-spaces-inside: 1
     level: warning

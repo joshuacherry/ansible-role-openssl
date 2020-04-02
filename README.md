@@ -2,9 +2,8 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Build Status](https://travis-ci.org/joshuacherry/ansible-role-openssl.svg?branch=master)](https://travis-ci.org/joshuacherry/ansible-role-openssl)
-![Ansible](https://img.shields.io/badge/ansible-2.5.0-blue.svg)
-![Ansible](https://img.shields.io/badge/ansible-2.6.1-blue.svg)
-![Ansible](https://img.shields.io/badge/ansible-2.7.0-blue.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.8-blue.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.9-blue.svg)
 
 Manage SSL certificates on a linux server.
 
@@ -12,9 +11,8 @@ Manage SSL certificates on a linux server.
 
 - Ansible
   - Tested Versions:
-    - 2.5.0
-    - 2.6.1
-    - 2.7.0
+    - 2.8
+    - 2.9
 
 ## Install
 
@@ -27,11 +25,12 @@ Manage SSL certificates on a linux server.
 - Create Self Signed Certificate
 - Manage multiple predefined certificates
 
-| OS            | Option 1      |
-| :------------ | :-----------: |
-| Ubuntu 16.04  | ✓             |
-| ubuntu 18.04  | ✓             |
-| Centos 7      | ✓             |
+| OS            |
+| :------------ |
+| Ubuntu 16.04  |
+| ubuntu 18.04  |
+| Centos 7      |
+| Centos 8      |
 
 ## Versioning
 
@@ -96,6 +95,7 @@ docker exec -it instance /bin/bash
 | Ubuntu 16.04  | ubuntu1604      | /lib/systemd/systemd     |
 | ubuntu 18.04  | ubuntu1804      | /lib/systemd/systemd     |
 | Centos 7      | centos7         | /usr/lib/systemd/systemd |
+| Centos 8      | centos8         | /usr/lib/systemd/systemd |
 
 ## Example Playbook
 

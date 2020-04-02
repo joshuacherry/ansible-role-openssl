@@ -16,6 +16,22 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [2.0.0] - 2020-04-02
+
+### Added
+
+- Support for python 3.8 and ansible 2.9
+- Support for Centos 8
+
+### Changed
+
+- Changed molecule version to 3.x
+
+### Removed
+
+- Removed support for ansible 2.5, 2.6, 2.7
+- Removed support for python 2.7
+
 ## [1.3.0] - 2018-11-5
 
 ### Added
@@ -60,7 +76,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 - Ansible Galaxy metadata file.
 
-[Unreleased]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.3.0...HEAD
+[Unreleased]: https://github.com/joshuacherry/ansible-role-openssl/compare/2.0.0...HEAD
+[2.0.0]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.3.0...2.0.0
 [1.3.0]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.2.1...1.3.0
 [1.2.1]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.2.0...1.2.1
 [1.2.0]: https://github.com/joshuacherry/ansible-role-openssl/compare/1.0.1...1.2.0

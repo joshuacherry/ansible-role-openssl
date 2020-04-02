@@ -37,6 +37,10 @@ def test_self_signed_signature(host):
     """
     dist_release = host.ansible(
         "setup")["ansible_facts"]["ansible_distribution_release"]
+    dist = host.ansible(
+        "setup")["ansible_facts"]["ansible_distribution"]
+    dist_major_version = host.ansible(
+        "setup")["ansible_facts"]["ansible_distribution_major_version"]
     cert = host.file('/etc/pki/tls/certs/role_test_cert.crt')
     key = host.file('/etc/pki/tls/private/role_test_cert.key')
     subject_cmd = ("openssl x509 -in "
@@ -44,13 +48,14 @@ def test_self_signed_signature(host):
                    )
     subject_output = ("subject= /C=US/ST=State/L=City/O=Org Name"
                       "/OU=Department Name/CN=role_test_cert"
-                      "/emailAddress=admin@fqdn"
+                      "/emailAddress=admin@fqdn\n"
                       )
 
-    if dist_release == "bionic":
+    if ((dist_release == "bionic") or
+            ((dist == "CentOS") and (dist_major_version == "8"))):
         subject_output = ("subject=C = US, ST = State, L = City, "
                           "O = Org Name, OU = Department Name, "
-                          "CN = role_test_cert, emailAddress = admin@fqdn"
+                          "CN = role_test_cert, emailAddress = admin@fqdn\n"
                           )
 
     subject = host.run(subject_cmd)

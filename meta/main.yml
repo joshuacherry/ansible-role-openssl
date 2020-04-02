@@ -3,7 +3,7 @@ galaxy_info:
   author: Joshua Cherry
   description: Manage SSL certificates on a linux server.
   license: MIT
-  min_ansible_version: 2.5.0
+  min_ansible_version: 2.8
   platforms:
     - name: Ubuntu
       versions:
@@ -11,6 +11,7 @@ galaxy_info:
     - name: EL
       versions:
         - 7
-  categories:
+        - 8
+  galaxy_tags:
     - system
 dependencies: []
